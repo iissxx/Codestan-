@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="كودستان - واقعية لعام 2026،مواقع مطورة وحديثة نهتم بأدق التفاصيل">
+    <meta name="keywords" content="كودستان، 2026، تقنية، مستقبل، ثلاثي الأبعاد، تطوير">
+    <title>كودستان - واقعية لعام 2026</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #0a0a2e 0%, #16213e 50%, #1a237e 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #00ffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #00ffff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+        radial-gradient(2px 2px at 160px 30px, #00ffff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    background: rgba(10, 10, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.contact-btn {
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Left Content */
+.content-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.main-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff;
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px #00ffff; }
+    to { text-shadow: 0 0 30px #00ffff, 0 0 40px #00ffff; }
+}
+
+/* 3D Cube */
+.cube-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    animation: rotateCube 6s infinite linear;
+}
+
+@keyframes rotateCube {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.front { transform: rotateY(0deg) translateZ(50px); }
+.back { transform: rotateY(180deg) translateZ(50px); }
+.right { transform: rotateY(90deg) translateZ(50px); }
+.left { transform: rotateY(-90deg) translateZ(50px); }
+.top { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.subtitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #b3b3b3;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Right Content */
+.content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 400px;
+}
+
+/* Circular Progress */
+.circular-progress {
+    position: relative;
+}
+
+.progress-ring {
+    position: relative;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.progress-svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle-bg {
+    fill: none;
+    stroke: rgba(0, 255, 255, 0.2);
+    stroke-width: 4;
+}
+
+.progress-circle {
+    fill: none;
+    stroke: #00ffff;
+    stroke-width: 4;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 157;
+    filter: drop-shadow(0 0 10px #00ffff);
+    animation: progressAnimation 3s ease-in-out infinite;
+}
+
+@keyframes progressAnimation {
+    0%, 100% { stroke-dashoffset: 157; }
+    50% { stroke-dashoffset: 50; }
+}
+
+.progress-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #00ffff, #0080ff);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Chart Container */
+.chart-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    width: 250px;
+}
+
+.chart-header {
+    margin-bottom: 15px;
+}
+
+.chart-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chart-line {
+    height: 3px;
+    background: linear-gradient(90deg, #00ffff, transparent);
+    border-radius: 2px;
+    animation: chartLineGrow 2s ease-in-out infinite;
+}
+
+.chart-line:nth-child(1) { width: 80%; animation-delay: 0s; }
+.chart-line:nth-child(2) { width: 60%; animation-delay: 0.5s; }
+.chart-line:nth-child(3) { width: 90%; animation-delay: 1s; }
+.chart-line:nth-child(4) { width: 70%; animation-delay: 1.5s; }
+
+@keyframes chartLineGrow {
+    0%, 100% { opacity: 0.6; transform: scaleX(1); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+}
+
+.chart-svg {
+    width: 100%;
+    height: 100px;
+}
+
+.chart-polyline {
+    fill: none;
+    stroke: #00ffff;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 5px #00ffff);
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 3s ease-in-out infinite;
+}
+
+@keyframes drawLine {
+    0% { stroke-dashoffset: 300; }
+    50%, 100% { stroke-dashoffset: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+
+
+/* Enhanced 3D Effects */
+.main-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.main-card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Advanced Cube Effects */
+.cube {
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8));
+}
+
+.face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00ffff, transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: innerGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes innerGlow {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.5); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Floating Elements */
+.floating-element {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+}
+
+/* Enhanced Progress Ring */
+.progress-ring::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #00ffff;
+    border-radius: 50%;
+    animation: outerRing 3s linear infinite;
+}
+
+@keyframes outerRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 3D Chart Enhancement */
+.chart-container {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: rotateY(-10deg) rotateX(5deg);
+}
+
+/* Holographic Effect */
+.holographic {
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 255, 0.2),
+        transparent
+    );
+    animation: holographicScan 4s ease-in-out infinite;
+}
+
+@keyframes holographicScan {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: -100%; }
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.1;
+}
+
+/* Energy Pulse */
+.energy-pulse {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #00ffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: energyPulse 3s ease-in-out infinite;
+    opacity: 0.3;
+}
+
+@keyframes energyPulse {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+/* Neon Border Effect */
+.neon-border {
+    position: relative;
+    border: 2px solid #00ffff;
+    box-shadow: 
+        0 0 5px #00ffff,
+        inset 0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        inset 0 0 10px #00ffff;
+    animation: neonFlicker 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 100% {
+        box-shadow: 
+            0 0 5px #00ffff,
+            inset 0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            inset 0 0 10px #00ffff;
+    }
+    50% {
+        box-shadow: 
+            0 0 2px #00ffff,
+            inset 0 0 2px #00ffff,
+            0 0 5px #00ffff,
+            inset 0 0 5px #00ffff;
+    }
+}
+
+/* Geometric Shapes */
+.geometric-shape {
+    position: absolute;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    animation: geometricFloat 8s ease-in-out infinite;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid rgba(0, 255, 255, 0.3);
+    top: 30%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.diamond {
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 255, 255, 0.3);
+    transform: rotate(45deg);
+    top: 70%;
+    left: 5%;
+    animation-delay: 3s;
+}
+
+@keyframes geometricFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(90deg); }
+    50% { transform: translateY(-30px) rotate(180deg); }
+    75% { transform: translateY(-15px) rotate(270deg); }
+}
+
+/* Data Stream Effect */
+.data-stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+    animation: dataFlow 2s linear infinite;
+}
+
+.data-stream:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.data-stream:nth-child(2) {
+    left: 40%;
+    animation-delay: 0.5s;
+}
+
+.data-stream:nth-child(3) {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.data-stream:nth-child(4) {
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+@keyframes dataFlow {
+    0% { transform: translateY(-100px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <!-- Geometric Shapes -->
+    <div class="geometric-shape triangle"></div>
+    <div class="geometric-shape diamond"></div>
+    
+    <!-- Data Streams -->
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">الصفحة</a>
+                <a href="services.html" class="nav-link">حول</a>
+                <a href="services.html" class="nav-link">خدمات</a>
+            </div>
+            <button class="contact-btn">تواصل الآن</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Side Content -->
+        <div class="content-left">
+            <div class="main-card holographic neon-border">
+                <div class="energy-pulse"></div>
+                <h1 class="main-title">كودستان</h1>
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </div>
+                <h2 class="subtitle">واقعية<br>لعام 2026</h2>
+                <p class="description">مواقع دقيقة واحترافيه<br>ثلاثية الابعاد</p>
+                
+                <div class="nav-link">
+                    <a href="my.html"class="btn-primary">تواصل معي</button>
+                    <a href="index.html"class="btn-secondary">الرئيسية</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Elements -->
+        <div class="content-right">
+            <!-- Circular Progress -->
+            <div class="circular-progress">
+                <div class="progress-ring">
+                    <svg class="progress-svg" width="120" height="120">
+                        <circle class="progress-circle-bg" cx="60" cy="60" r="50"></circle>
+                        <circle class="progress-circle" cx="60" cy="60" r="50"></circle>
+                    </svg>
+                    <div class="progress-center"></div>
+                </div>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-lines">
+                        <div class="chart-line"></div>
+                        <div class="chart-line"></div>
+                        <div class="chart-line"></div>
+                        <div class="chart-line"></div>
+                    </div>
+                </div>
+                <div class="chart-graph">
+                    <svg class="chart-svg" width="200" height="100">
+                        <polyline class="chart-polyline" points="10,80 50,60 90,40 130,30 170,20"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Add interactive hover effects to buttons
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .contact-btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Add click effects
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Enhanced cube rotation on hover
+    const cube = document.querySelector('.cube');
+    const cubeContainer = document.querySelector('.cube-container');
+    
+    cubeContainer.addEventListener('mouseenter', function() {
+        cube.style.animationDuration = '2s';
+        cube.style.transform = 'rotateX(45deg) rotateY(45deg) scale(1.2)';
+    });
+    
+    cubeContainer.addEventListener('mouseleave', function() {
+        cube.style.animationDuration = '6s';
+        cube.style.transform = '';
+    });
+
+    // Parallax effect for stars
+    document.addEventListener('mousemove', function(e) {
+        const stars = document.querySelector('.stars');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        stars.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add smooth scroll behavior here if needed
+        });
+    });
+
+    // Add floating animation to main card
+    const mainCard = document.querySelector('.main-card');
+    let floatDirection = 1;
+    
+    setInterval(() => {
+        const currentTransform = mainCard.style.transform || 'translateY(0px)';
+        const currentY = parseFloat(currentTransform.match(/translateY\(([^)]+)\)/)?.[1] || 0);
+        
+        if (currentY >= 10) floatDirection = -1;
+        if (currentY <= -10) floatDirection = 1;
+        
+        mainCard.style.transform = `translateY(${currentY + floatDirection * 0.5}px)`;
+    }, 100);
+
+    // Enhanced progress circle animation
+    const progressCircle = document.querySelector('.progress-circle');
+    let progress = 0;
+    
+    setInterval(() => {
+        progress += 2;
+        if (progress > 100) progress = 0;
+        
+        const circumference = 2 * Math.PI * 50;
+        const offset = circumference - (progress / 100) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+    }, 100);
+
+    // Add glow effect to interactive elements
+    const interactiveElements = document.querySelectorAll('.main-title, .cube, .progress-center');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.filter = 'brightness(1.3) drop-shadow(0 0 20px #00ffff)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.filter = '';
+        });
+    });
+
+    // Dynamic chart animation
+    const chartLines = document.querySelectorAll('.chart-line');
+    setInterval(() => {
+        chartLines.forEach((line, index) => {
+            const randomWidth = Math.random() * 40 + 50; // 50-90%
+            line.style.width = randomWidth + '%';
+        });
+    }, 3000);
+
+    // Add typing effect to subtitle
+    const subtitle = document.querySelector('.subtitle');
+    const originalText = subtitle.innerHTML;
+    subtitle.innerHTML = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < originalText.length) {
+            subtitle.innerHTML += originalText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    setTimeout(typeWriter, 1000);
+
+    // Add particle effect
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.style.position = 'fixed';
+        particle.style.width = '2px';
+        particle.style.height = '2px';
+        particle.style.background = '#00ffff';
+        particle.style.borderRadius = '50%';
+        particle.style.pointerEvents = 'none';
+        particle.style.zIndex = '5';
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.top = window.innerHeight + 'px';
+        particle.style.boxShadow = '0 0 6px #00ffff';
+        
+        document.body.appendChild(particle);
+        
+        const animation = particle.animate([
+            { transform: 'translateY(0px)', opacity: 1 },
+            { transform: `translateY(-${window.innerHeight + 100}px)`, opacity: 0 }
+        ], {
+            duration: Math.random() * 3000 + 2000,
+            easing: 'linear'
+        });
+        
+        animation.onfinish = () => particle.remove();
+    }
+    
+    // Create particles periodically
+    setInterval(createParticle, 500);
+});
+
+// Add CSS for ripple effect
+const style = document.createElement('style');
+style.textContent = `
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+
+    // Advanced 3D mouse tracking
+    document.addEventListener('mousemove', function(e) {
+        const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        const mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+        
+        // Apply 3D transform to main card
+        const mainCard = document.querySelector('.main-card');
+        const rotateY = mouseX * 10;
+        const rotateX = -mouseY * 10;
+        
+        mainCard.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        
+        // Move floating elements
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.5;
+            element.style.transform = `translate(${mouseX * speed * 10}px, ${mouseY * speed * 10}px)`;
+        });
+        
+        // Adjust geometric shapes
+        const geometricShapes = document.querySelectorAll('.geometric-shape');
+        geometricShapes.forEach((shape, index) => {
+            const rotation = (mouseX + mouseY) * 45 + (index * 90);
+            shape.style.transform += ` rotate(${rotation}deg)`;
+        });
+    });
+
+    // Enhanced cube interaction
+    const faces = document.querySelectorAll('.face');
+    faces.forEach((face, index) => {
+        face.addEventListener('click', function() {
+            // Create explosion effect
+            for (let i = 0; i < 10; i++) {
+                const spark = document.createElement('div');
+                spark.style.position = 'absolute';
+                spark.style.width = '4px';
+                spark.style.height = '4px';
+                spark.style.background = '#00ffff';
+                spark.style.borderRadius = '50%';
+                spark.style.pointerEvents = 'none';
+                spark.style.zIndex = '1000';
+                
+                const rect = this.getBoundingClientRect();
+                spark.style.left = (rect.left + rect.width / 2) + 'px';
+                spark.style.top = (rect.top + rect.height / 2) + 'px';
+                
+                document.body.appendChild(spark);
+                
+                const angle = (i / 10) * Math.PI * 2;
+                const distance = 50 + Math.random() * 50;
+                const endX = Math.cos(angle) * distance;
+                const endY = Math.sin(angle) * distance;
+                
+                spark.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${endX}px, ${endY}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'ease-out'
+                }).onfinish = () => spark.remove();
+            }
+        });
+    });
+
+    // Matrix rain effect
+    function createMatrixRain() {
+        const matrixContainer = document.createElement('div');
+        matrixContainer.className = 'matrix-rain';
+        document.body.appendChild(matrixContainer);
+        
+        const characters = '01كودستان2040';
+        
+        for (let i = 0; i < 50; i++) {
+            const column = document.createElement('div');
+            column.style.position = 'absolute';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.color = '#00ffff';
+            column.style.fontSize = '14px';
+            column.style.fontFamily = 'monospace';
+            column.style.animation = `matrixFall ${Math.random() * 3 + 2}s linear infinite`;
+            column.style.animationDelay = Math.random() * 2 + 's';
+            
+            let text = '';
+            for (let j = 0; j < 20; j++) {
+                text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+            }
+            column.innerHTML = text;
+            
+            matrixContainer.appendChild(column);
+        }
+    }
+    
+    // Add matrix rain CSS
+    const matrixStyle = document.createElement('style');
+    matrixStyle.textContent = `
+        @keyframes matrixFall {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(matrixStyle);
+    
+    createMatrixRain();
+
+    // Audio visualization effect
+    function createAudioVisualization() {
+        const visualizer = document.createElement('div');
+        visualizer.style.position = 'fixed';
+        visualizer.style.bottom = '20px';
+        visualizer.style.left = '20px';
+        visualizer.style.display = 'flex';
+        visualizer.style.alignItems = 'end';
+        visualizer.style.gap = '2px';
+        visualizer.style.zIndex = '100';
+        
+        for (let i = 0; i < 20; i++) {
+            const bar = document.createElement('div');
+            bar.style.width = '3px';
+            bar.style.background = 'linear-gradient(to top, #00ffff, #0080ff)';
+            bar.style.borderRadius = '2px';
+            bar.style.animation = `audioBar ${Math.random() * 0.5 + 0.5}s ease-in-out infinite alternate`;
+            bar.style.animationDelay = Math.random() * 0.5 + 's';
+            
+            visualizer.appendChild(bar);
+        }
+        
+        document.body.appendChild(visualizer);
+    }
+    
+    // Add audio visualization CSS
+    const audioStyle = document.createElement('style');
+    audioStyle.textContent = `
+        @keyframes audioBar {
+            0% { height: 5px; }
+            100% { height: ${Math.random() * 30 + 10}px; }
+        }
+    `;
+    document.head.appendChild(audioStyle);
+    
+    createAudioVisualization();
+
+    // Holographic text effect
+    function addHolographicEffect() {
+        const title = document.querySelector('.main-title');
+        title.style.background = 'linear-gradient(45deg, #00ffff, #0080ff, #00ffff)';
+        title.style.backgroundSize = '200% 200%';
+        title.style.webkitBackgroundClip = 'text';
+        title.style.webkitTextFillColor = 'transparent';
+        title.style.animation = 'holographicText 3s ease-in-out infinite';
+        
+        const holographicTextStyle = document.createElement('style');
+        holographicTextStyle.textContent = `
+            @keyframes holographicText {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+        `;
+        document.head.appendChild(holographicTextStyle);
+    }
+    
+    addHolographicEffect();
+
+    // Enhanced progress animation with sound visualization
+    let progressValue = 0;
+    const progressInterval = setInterval(() => {
+        progressValue += 1;
+        if (progressValue > 100) progressValue = 0;
+        
+        const progressCircle = document.querySelector('.progress-circle');
+        const circumference = 2 * Math.PI * 50;
+        const offset = circumference - (progressValue / 100) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+        
+        // Add pulsing effect based on progress
+        const progressCenter = document.querySelector('.progress-center');
+        const scale = 1 + (progressValue / 100) * 0.5;
+        progressCenter.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }, 50);
+});
+
+    </script>
+</body>
+</html>
+

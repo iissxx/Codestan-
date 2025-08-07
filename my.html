@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>كودستان - تواصل معنا</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #0a0a2e, #16213e, #1a237e);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .stars {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+    .stars::before {
+      content: ''; position: absolute; width: 100%; height: 100%;
+      background-image: radial-gradient(1px 1px at 20px 30px, #00ffff, transparent),
+                        radial-gradient(1px 1px at 40px 70px, #00ffff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: twinkle 4s infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+
+    .main-container {
+      display: flex; align-items: center; justify-content: center;
+      padding: 15px; min-height: 100vh;
+    }
+
+    .contact-card {
+      background: rgba(10, 10, 46, 0.75);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .main-title {
+      font-size: 1.6rem;
+      color: #00ffff;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .direct-contact {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .direct-icon img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 5px;
+      transition: 0.3s;
+    }
+
+    .direct-icon img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .divider {
+      color: rgba(0, 255, 255, 0.7);
+      margin: 15px 0;
+      font-size: 0.85rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-input {
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .form-input:focus {
+      border-color: #00ffff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+    }
+
+    .btn-primary {
+      padding: 10px;
+      background: linear-gradient(45deg, #00ffff, #0080ff);
+      color: #0a0a2e;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 10px;
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      padding: 10px;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="main-container">
+    <div class="contact-card">
+      <h1 class="main-title">تواصل معنا</h1>
+      <p class="description">للتواصل السريع اضغط على أحد التطبيقات:</p>
+
+      <div class="direct-contact">
+        <a href="https://wa.me/712994615" target="_blank" class="direct-icon" aria-label="واتساب">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب" />
+        </a>
+        <a href="https://www.tiktok.com/@codestan" target="_blank" class="direct-icon" aria-label="تيك توك">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="تيك توك" />
+        </a>
+      </div>
+
+      <div class="divider">أو أرسل رسالة مباشرة</div>
+
+      <!-- ✅ نموذج التواصل -->
+      <form id="contactForm" class="contact-form">
+        <input type="hidden" name="access_key" value="8ca16ad4-d9db-4f10-8b75-d9d736e0f808">
+        <input type="text" name="name" class="form-input" placeholder="اسمك" required>
+        <input type="email" name="email" class="form-input" placeholder="بريدك الإلكتروني" required>
+        <textarea name="message" rows="3" class="form-input" placeholder="رسالتك..." required></textarea>
+        <button type="submit" class="btn-primary">إرسال</button>
+      </form>
+
+      <div id="successMessage" class="success-message">✅ تم إرسال رسالتك بنجاح!</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = "block";
+        } else {
+          alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+        }
+      }).catch(error => {
+        alert("فشل الاتصال بالخادم.");
+      });
+    });
+  </script>
+</body>
+</html>

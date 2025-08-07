@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سايبركود - عالم الأمن السيبراني والاختراق الأخلاقي. استكشف أسرار الشبكات، تحليل الثغرات، وحماية البيانات.">
+    <meta name="keywords" content="سايبركود، أمن سيبراني، اختراق أخلاقي، حماية البيانات، شبكات، ثغرات، تشفير، فك تشفير">
+    <title>سايبركود - حماية البيانات في عالم رقمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a0a1a 100%);
+            color: #00ff00;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Binary Rain Background */
+        .binary-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .binary-column {
+            position: absolute;
+            width: 15px;
+            font-size: 14px;
+            color: #00ff00;
+            opacity: 0.7;
+            animation: binaryFall linear infinite;
+        }
+
+        @keyframes binaryFall {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 0.7; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #00ff00, #008000);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Left Content */
+        .content-left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .main-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: ">";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            color: #00ff00;
+            animation: typing 1s steps(1) infinite;
+        }
+
+        @keyframes typing {
+            50% { opacity: 0; }
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+            margin-bottom: 20px;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0 0 20px #00ff00; transform: translate(0); }
+            20% { text-shadow: 0 0 20px #00ff00, 2px 2px #ff00ff; transform: translate(-2px, -2px); }
+            40% { text-shadow: 0 0 20px #00ff00, -2px -2px #00ffff; transform: translate(2px, 2px); }
+            60% { text-shadow: 0 0 20px #00ff00, 2px -2px #ff00ff; transform: translate(-2px, 2px); }
+            80% { text-shadow: 0 0 20px #00ff00, -2px 2px #00ffff; transform: translate(2px, -2px); }
+            100% { text-shadow: 0 0 20px #00ff00; transform: translate(0); }
+        }
+
+        /* Data Cube */
+        .cube-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .cube {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: rotateCube 6s infinite linear;
+        }
+
+        @keyframes rotateCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 255, 0, 0.2);
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .front { transform: rotateY(0deg) translateZ(50px); background: rgba(0, 255, 0, 0.3); }
+        .back { transform: rotateY(180deg) translateZ(50px); }
+        .right { transform: rotateY(90deg) translateZ(50px); }
+        .left { transform: rotateY(-90deg) translateZ(50px); }
+        .top { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        .subtitle {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #00ff00;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #00cc00;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ff00, #008000);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Right Content */
+        .content-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 400px;
+        }
+
+        /* Network Activity Monitor */
+        .network-monitor {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.8); }
+        }
+
+        .monitor-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #00ff00;
+            transform-origin: center;
+            animation: rotateLine 5s linear infinite;
+        }
+
+        .monitor-line:nth-child(2) { transform: rotate(90deg); animation-delay: -2.5s; }
+
+        @keyframes rotateLine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .monitor-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffff;
+            animation: dotTravel 3s linear infinite;
+        }
+
+        @keyframes dotTravel {
+            0% { transform: translate(0, 0); opacity: 0; }
+            25% { transform: translate(50px, -50px); opacity: 1; }
+            50% { transform: translate(0, -100px); opacity: 0; }
+            75% { transform: translate(-50px, -50px); opacity: 1; }
+            100% { transform: translate(0, 0); opacity: 0; }
+        }
+
+        /* Terminal Output Chart */
+        .terminal-chart {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .terminal-header {
+            color: #00ff00;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .terminal-output {
+            height: 150px;
+            overflow-y: scroll;
+            border: 1px solid #008000;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #00ff00;
+            background: #0a0a0a;
+            white-space: pre-wrap;
+            word-break: break-all;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+
+        .terminal-output::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+
+        .terminal-prompt {
+            color: #00ffff;
+        }
+
+        .terminal-command {
+            color: #00ff00;
+        }
+
+        .terminal-response {
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Glitch effect for elements */
+        .glitch-effect {
+            animation: textGlitch 0.5s infinite alternate;
+        }
+
+        @keyframes textGlitch {
+            0% { transform: skewX(0deg); text-shadow: 0 0 5px #00ff00; }
+            25% { transform: skewX(-5deg); text-shadow: 2px 0 5px #ff00ff; }
+            50% { transform: skewX(0deg); text-shadow: 0 0 5px #00ff00; }
+            75% { transform: skewX(5deg); text-shadow: -2px 0 5px #00ffff; }
+            100% { transform: skewX(0deg); text-shadow: 0 0 5px #00ff00; }
+        }
+
+        /* Neon Border Effect */
+        .neon-border {
+            position: relative;
+            border: 2px solid #00ff00;
+            box-shadow: 
+                0 0 5px #00ff00,
+                inset 0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                inset 0 0 10px #00ff00;
+            animation: neonFlicker 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% {
+                box-shadow: 
+                    0 0 5px #00ff00,
+                    inset 0 0 5px #00ff00,
+                    0 0 10px #00ff00,
+                    inset 0 0 10px #00ff00;
+            }
+            50% {
+                box-shadow: 
+                    0 0 2px #00ff00,
+                    inset 0 0 2px #00ff00,
+                    0 0 5px #00ff00,
+                    inset 0 0 5px #00ff00;
+            }
+        }
+
+        /* Data Stream Effect */
+        .data-stream {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #00ff00, transparent);
+            animation: dataFlow 2s linear infinite;
+        }
+
+        .data-stream:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .data-stream:nth-child(2) {
+            left: 40%;
+            animation-delay: 0.5s;
+        }
+
+        .data-stream:nth-child(3) {
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        .data-stream:nth-child(4) {
+            left: 80%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes dataFlow {
+            0% { transform: translateY(-100px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Ripple effect for buttons */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 255, 0, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="binary-rain"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-link">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+
+                <a href="services.html" class="nav-link">الخدمات</a>
+
+                <a href="name.html" class="nav-link">حول</a>
+            </div>
+            <a href="my.html" class="contact-btn">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Side Content -->
+        <div class="content-left">
+            <div class="main-card neon-border">
+                <h1 class="main-title glitch-effect">سايبركود</h1>
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face front">0101</div>
+                        <div class="face back">1010</div>
+                        <div class="face right">0011</div>
+                        <div class="face left">1100</div>
+                        <div class="face top">1001</div>
+                        <div class="face bottom">0110</div>
+                    </div>
+                </div>
+                <h2 class="subtitle">اختراق أخلاقي<br>لحماية المستقبل</h2>
+                <p class="description">نقدم حلولاً متقدمة في الأمن السيبراني، تحليل الثغرات، واختبار الاختراق لضمان أمان بياناتك في عالم رقمي متطور.</p>
+                
+                <div class="action-buttons">
+                    <a href="services.html" class="btn-primary">ابدأ الحماية</a>
+                    <a href="name.html" class="btn-secondary">تعرف علينا</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Elements -->
+        <div class="content-right">
+            <!-- Network Activity Monitor -->
+            <div class="network-monitor">
+                <div class="monitor-line"></div>
+                <div class="monitor-line"></div>
+                <div class="monitor-dot"></div>
+            </div>
+
+            <!-- Terminal Output Chart -->
+            <div class="terminal-chart">
+                <div class="terminal-header">Terminal Output:</div>
+                <div class="terminal-output" id="terminalOutput">
+                    <span class="terminal-prompt">root@cybercode:~#</span> <span class="terminal-command">ls -la /var/log/</span>
+                    <span class="terminal-response">access.log error.log auth.log</span>
+                    <span class="terminal-prompt">root@cybercode:~#</span> <span class="terminal-command">nmap -p 80,443 localhost</span>
+                    <span class="terminal-response">PORT     STATE SERVICE</span>
+                    <span class="terminal-response">80/tcp   open  http</span>
+                    <span class="terminal-response">443/tcp  open  https</span>
+                    <span class="terminal-prompt">root@cybercode:~#</span> <span class="terminal-command">cat /etc/passwd</span>
+                    <span class="terminal-response">root:x:0:0:root:/root:/bin/bash</span>
+                    <span class="terminal-response">user:x:1000:1000:User,,,:/home/user:/bin/bash</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interactive hover effects for buttons
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .contact-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    this.appendChild(ripple);
+                    setTimeout(() => { ripple.remove(); }, 600);
+                });
+            });
+
+            // Enhanced cube rotation on hover
+            const cube = document.querySelector('.cube');
+            const cubeContainer = document.querySelector('.cube-container');
+            cubeContainer.addEventListener('mouseenter', function() {
+                cube.style.animationDuration = '2s';
+                cube.style.transform = 'rotateX(45deg) rotateY(45deg) scale(1.2)';
+            });
+            cubeContainer.addEventListener('mouseleave', function() {
+                cube.style.animationDuration = '6s';
+                cube.style.transform = '';
+            });
+
+            // Parallax effect for binary rain
+            document.addEventListener('mousemove', function(e) {
+                const binaryRain = document.querySelector('.binary-rain');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                binaryRain.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            });
+
+            // Smooth scrolling for navigation links (placeholder)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            });
+
+            // Add glitch effect to interactive elements
+            const interactiveElements = document.querySelectorAll('.main-title, .cube, .network-monitor');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.classList.add('glitch-effect');
+                });
+                element.addEventListener('mouseleave', function() {
+                    this.classList.remove('glitch-effect');
+                });
+            });
+
+            // Dynamic terminal output simulation
+            const terminalOutput = document.getElementById('terminalOutput');
+            const lines = terminalOutput.innerHTML.split('<br>');
+            terminalOutput.innerHTML = ''; // Clear initial content
+            let lineIndex = 0;
+            let charIndex = 0;
+            let currentLineElement;
+
+            function typeTerminalLine() {
+                if (lineIndex < lines.length) {
+                    if (charIndex === 0) {
+                        currentLineElement = document.createElement('div');
+                        currentLineElement.classList.add('terminal-line');
+                        terminalOutput.appendChild(currentLineElement);
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
+                    }
+                    
+                    const lineContent = lines[lineIndex];
+                    if (charIndex < lineContent.length) {
+                        currentLineElement.innerHTML += lineContent.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeTerminalLine, 30); // Typing speed
+                    } else {
+                        currentLineElement.innerHTML = lineContent; // Ensure full line is rendered
+                        lineIndex++;
+                        charIndex = 0;
+                        setTimeout(typeTerminalLine, 1000); // Delay before next line
+                    }
+                } else {
+                    // Restart or loop terminal output
+                    lineIndex = 0;
+                    charIndex = 0;
+                    terminalOutput.innerHTML = '';
+                    setTimeout(typeTerminalLine, 2000); // Delay before restarting
+                }
+            }
+            typeTerminalLine();
+
+            // Binary rain generation
+            const binaryRainContainer = document.querySelector('.binary-rain');
+            const characters = '01';
+            const numColumns = Math.floor(window.innerWidth / 15);
+
+            for (let i = 0; i < numColumns; i++) {
+                const column = document.createElement('div');
+                column.classList.add('binary-column');
+                column.style.left = `${i * 15}px`;
+                column.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                
+                let text = '';
+                for (let j = 0; j < 30; j++) { // Number of binary characters per column
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                binaryRainContainer.appendChild(column);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
